@@ -16,10 +16,10 @@ pip install pygame numpy
 
 This program was designed and tested on Python 3.13.13
 
-Ensure `raceline.csv` is in the same directory as `mpc.py`, then run:
+Ensure `raceline.csv` is in the same directory as `mppi.py`, then run:
 
 ```bash
-python mpc.py 
+python mppi.py 
 ```
 
 The simulation window will open showing the raceline in yellow and the car in red. The MPPI predicted trajectory is drawn in cyan.

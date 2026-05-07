@@ -102,7 +102,7 @@ There is a slightly more in-depth walkthrough of this MPPI implementation that i
 
 ### The Cost Function
 
-Each simulation timestep (which is normally significantly smaller than your real world timestep), a measure is taken of the car's state relative to the desired path. A calculation is then made using these error factors and is added to an accumulator for that specific input sequence. It is important that this cost is calculated over the whole process of the simulation rollout and not just the final position of the vehicle, because that approach could technically result in input sequences that move sharply away from the desired path but subsequently come back around to end up in a good position receiving high scores. We want to reward closely following the raceline for the full duration of the rollout, not just on the final step of the horizon.
+Each rollout timestep (which is normally significantly smaller than your real world timestep), a measure is taken of the car's state relative to the desired path. A calculation is then made using these error factors and is added to an accumulator for that specific input sequence. It is important that this cost is calculated over the whole process of the simulation rollout and not just the final position of the vehicle, because that approach could technically result in input sequences that move sharply away from the desired path but subsequently come back around to end up in a good position receiving high scores. We want to reward closely following the raceline for the full duration of the rollout, not just on the final step of the horizon.
 
 The actual cost function is denoted as
 $$

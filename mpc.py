@@ -8,7 +8,7 @@
 # https://github.com/Mechazo11/mppi-python/blob/main/scripts/mppi.py
 # Some basic pygame templates were also used for the visualization. I did not focus as much on differentiation here.
 # https://www.pygame.org/docs/tut/newbieguide.html
-# Some of the simulation is also based loosely on other top-down car projects I have worked on in the past (not pygame)
+# Some of the simulation is also based loosely on other top-down car projects I have worked on in the past (not python/pygame)
 # https://github.com/markparrishgwu/cs6221_fall2025_rust
 
 import math
@@ -150,7 +150,7 @@ def step(
 #     Cost is derived from W_CTE*cte + W_HEADING*h_err + W_SPEED*v_err + W_STEER*delta^2 (coefficients tunable based on vehicle behavior)
 #     Note that the cost is calculated every horizon step instead of just the ending position
 #     This avoids sequences that swing away from the racing line and then return to end up in a good position
-# 4) Each rollout is assigned an importance weight w_k = exp(-cost / MPPI_TEMPERATURE), and then normalised (via numpy)
+# 4) Each rollout is assigned an importance weight w_k = exp(-cost / MPPI_TEMPERATURE), and then normalised 
 # 5) Sum all sequences * importance weight to find optimal mixture of sequences
 # 6) Apply first control in sequence and pass that back as the optimal control for this sim step
 # 7) Repeat each frame of simulation, holding on to the previously derived working_sequence

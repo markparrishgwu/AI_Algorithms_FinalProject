@@ -104,13 +104,13 @@ There is a slightly more in-depth walkthrough of this MPPI implementation that i
 
 Each rollout timestep (which is normally significantly smaller than your real world timestep), a measure is taken of the car's state relative to the desired path. A calculation is then made using these error factors and is added to an accumulator for that specific input sequence. It is important that this cost is calculated over the whole process of the simulation rollout and not just the final position of the vehicle, because that approach could technically result in input sequences that move sharply away from the desired path but subsequently come back around to end up in a good position receiving high scores. We want to reward closely following the raceline for the full duration of the rollout, not just on the final step of the horizon.
 
-The actual cost function is denoted as
-$$
-    w_{\text{cte}} \lVert \mathbf{p}_k - \mathbf{p}^{\text{ref}}_k \rVert_2
-    + w_{\psi} |\psi_k - \psi^{\text{ref}}_k|
-    + w_{v} |v_k - v^{\text{ref}}_k|
-    + w_{\delta} \delta_k^2
-$$
+The actual cost function is denoted as 
+
+
+
+$$w_{\text{cte}} \left\| \mathbf{p}_k - \mathbf{p}^{\text{ref}}_k \right\|_2 + w_{\psi} \left| \psi_k - \psi^{\text{ref}}_k \right| + w_{v} \left| v_k - v^{\text{ref}}_k \right| + w_{\delta} \delta_k^2$$
+
+
 
 Where the coefficients $w$ are tunable parameters that adjust how heavily each of the factors are rewarded/punished. 
 
